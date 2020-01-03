@@ -1,0 +1,42 @@
+{% load static %}
+<link rel='stylesheet' href='{% static "nav.css" %}'>
+
+<div class='spg-nav'>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand spg-logo" href="/">
+            <img src='{% static "snowypiergames.svg" %}' class='spg-logo-image'/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#spg-navbar"
+                aria-controls="spg-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="spg-navbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/news">News</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/games" id="spg-dropdown" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Games</a>
+                    <div class="dropdown-menu" aria-labelledby="spg-dropdown">
+                        <a class="dropdown-item" href="/games">All Games</a>
+                        <a class="dropdown-item" href="/games/tatteredtales">Tattered Tales</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline mt-2 mt-md-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-info my-2 my-sm-0 nav-rightmost-element" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</div>

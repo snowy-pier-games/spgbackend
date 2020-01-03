@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Snowy Pier Games</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    {% load static %}
+    <script src='{% static "jquery.min.js" %}'></script>
+    <script src='{% static "bootstrap/js/bootstrap.min.js" %}'></script>
+    <link rel='stylesheet' href='{% static "bootstrap/css/bootstrap.min.css" %}'>
+    <link rel='stylesheet' href='{% static "base.css" %}'>
+</head>
+<body>
+<div class='container-fluid'>
+    <div class='row'>
+        <div class='col-sm-12 bg-light spg-base-nav'>
+            {% include "pages/nav.html" %}
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-sm-3 bg-dark spg-base-feed'>
+            {% include "pages/feed.html" %}
+        </div>
+        <div class='col-sm-8 spg-base-home'>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

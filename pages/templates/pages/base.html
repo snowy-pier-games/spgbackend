@@ -7,30 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     {% load static %}
-    <script src='{% static "jquery.min.js" %}'></script>
-    <script src='{% static "bootstrap/js/bootstrap.min.js" %}'></script>
-    <link rel='stylesheet' href='{% static "bootstrap/css/bootstrap.min.css" %}'>
-    <link rel='stylesheet' href='{% static "base.css" %}'>
+    <script src="{% static 'jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
 </head>
 
 <body>
-<div class='row'>
-    <div class='col-sm-12'>
+<div class="row">
+    <div class="col-sm-12">
         {% include "pages/nav.html" %}
     </div>
 </div>
 {% include "pages/jumbo.html" %}
-<div class='row'>
-    <div class='col-sm-3'>
+<div class="row">
+    <div class="col-sm-3">
         {% include "pages/feed.html" %}
     </div>
-    <div class='col-sm-8'>
+    <div class="col-sm-8">
         {% block content %}
         {% endblock %}
     </div>
 </div>
 
-<footer class='container'>
+<footer class="container">
     <p>&copy; Snowy Pier Games LLC, 2020</p>
 </footer>
 

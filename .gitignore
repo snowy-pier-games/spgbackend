@@ -1,5 +1,6 @@
 # Custom
 spgbackend/secretkey.py
+tmp
 
 # Django #
 *.log

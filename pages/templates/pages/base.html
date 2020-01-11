@@ -15,23 +15,30 @@
 
 <body>
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12 spg-base-nav">
         {% include "pages/nav.html" %}
     </div>
 </div>
-{% include "pages/jumbo.html" %}
 <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-1 spg-background-left" style="background-image: url({% static 'board-game.jpg' %})"></div>
+    <div class="col-sm-3 spg-base-feed bg-light">
         {% include "pages/feed.html" %}
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-7 spg-base-content">
         {% block content %}
         {% endblock %}
     </div>
+    <div class="col-sm-1 spg-background-right" style="background-image: url({% static 'board-game.jpg' %})"></div>
 </div>
 
-<footer class="container">
-    <p>&copy; Snowy Pier Games LLC, 2020</p>
+<footer>
+    <div class="row">
+        <div class="col-sm-12 spg-base-footer">
+            <div class="container">
+                <p>&copy; 2020 Snowy Pier Games LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
 </footer>
 
 </body>

@@ -1,0 +1,35 @@
+.spg-base-nav {
+  background-color: #111111;
+}
+
+.spg-background-left, .spg-background-right {
+  background-attachment: static;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  opacity: 0.25;
+}
+
+.spg-background-left {
+  background-position: center;
+}
+
+.spg-background-right {
+  background-position: right;
+}
+
+.spg-base-feed {
+  border-left: 4px solid #111111;
+  padding: 1% 1% 1% 1%;
+}
+
+.spg-base-content {
+  border-right: 4px solid #111111;
+  padding: 2% 2% 2% 2%;
+}
+
+.spg-base-footer {
+  color: white;
+  background-color: #111111;
+}

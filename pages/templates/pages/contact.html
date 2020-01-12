@@ -1,9 +1,10 @@
-{% extends "pages/base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'contact.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/contact.css' %}">
 
 <h2>Contact</h2>
 <hr>
+{{ displayText | safe }}
 {% endblock %}

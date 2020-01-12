@@ -1,9 +1,11 @@
-{% extends "pages/base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'games/tatteredtales.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/games/tatteredtales.css' %}">
 
 <h2>Tattered Tales</h2>
 <hr>
+{{ displayText | safe }}
+
 {% endblock %}

@@ -7,28 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     {% load static %}
-    <script src="{% static 'jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 
 <body>
 <div class="row">
     <div class="col-sm-12 spg-base-nav">
-        {% include "pages/nav.html" %}
+        {% include "nav.html" %}
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-1 spg-background-left" style="background-image: url({% static 'board-game.jpg' %})"></div>
-    <div class="col-sm-3 spg-base-feed bg-light">
-        {% include "pages/feed.html" %}
+    <div class="col-sm-2 spg-background-left" style="background-image: url({% static 'assets/board-game.jpg' %})"></div>
+    <div class="col-sm-2 spg-base-feed bg-light">
+        {% include "feed.html" %}
     </div>
-    <div class="col-sm-7 spg-base-content">
+    <div class="col-sm-6 spg-base-content">
         {% block content %}
         {% endblock %}
     </div>
-    <div class="col-sm-1 spg-background-right" style="background-image: url({% static 'board-game.jpg' %})"></div>
+    <div class="col-sm-2 spg-background-right" style="background-image: url({% static 'assets/board-game.jpg' %})"></div>
 </div>
 
 <footer>

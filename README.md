@@ -15,7 +15,7 @@ You'll also need to provide Django with a secret key, which it uses for cryptogr
 If you're just developing locally, you can make this anything you want.
 Assign its value in a new file called the `secretkey.py`, which should be in the same directory as `settings.py`.
 ```
-"secretkey = (your_generated_string)" > (top_level_directory)/spgbackend/secretkey.py
+echo "secretkey = (your_generated_string)" > (top_level_directory)/spgbackend/secretkey.py
 ```
 
 #### Running the web server

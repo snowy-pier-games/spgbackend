@@ -3,6 +3,8 @@ from django.shortcuts import render
 from .models import Content
 
 
+
+
 def home(request):
     context = {"displayText": Content.displayText["home"]}
     return render(request, 'pages/home.html', context)
@@ -32,6 +34,9 @@ def tatteredtales(request):
     context = {"displayText": Content.displayText["games/tatteredtales"]}
     return render(request, 'pages/games/tatteredtales.html', context)
 
+def feed(request):
+    context = {"displayText": Content.displayText["feed"]}
+    return render(request, 'feed.html', context)
 
 def search(request):
     searchText = request.GET.get('searchText')

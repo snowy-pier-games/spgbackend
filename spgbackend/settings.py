@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+CONFIG = "DEVELOPMENT"  # DEVELOPMENT or PRODUCTION
+
 import os
 from .secretkey import secretkey
 
@@ -23,9 +25,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = secretkey
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if CONFIG is "DEVELOPMENT":
+    DEBUG = True
+else:
+    DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'snowypiergames.com', 'www.snowypiergames.com']
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'snowypiergames.com',
+    'www.snowypiergames.com'
+]
 
 # Application definition
 
@@ -118,5 +127,5 @@ STATICFILES_DIRS = [
 
 STATIC_URL = '/static/'
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
+if CONFIG is "PRODUCTION":
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')

@@ -1,7 +1,7 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/nav.css' %}">
 
-<nav class="navbar navbar-expand-sm navbar-dark">
+<nav class="navbar navbar-expand-md navbar-dark">
     <a class="navbar-brand spg-logo" href="/">
         <img class="spg-logo-image" src="{% static 'assets/snowypiergames.svg' %}"/>
     </a>
@@ -34,9 +34,9 @@
             </li>
         </ul>
         <form class="form-inline" action="/search" method="get">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="searchText"
+            <input class="form-control mr-md-2" type="text" placeholder="Search" aria-label="Search" name="searchText"
                    value="{{searchText}}">
-            <button class="btn btn-outline-info my-2 my-sm-0 nav-rightmost-element" type="submit">Search</button>
+            <button class="btn btn-outline-info my-2 my-md-0 nav-rightmost-element" type="submit">Search</button>
         </form>
     </div>
 </nav>

@@ -15,25 +15,29 @@
 
 <body>
 <div class="row">
-    <div class="col-sm-12 spg-base-nav">
+    <div class="col-md-12 spg-base-nav">
         {% include "nav.html" %}
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-2 spg-background-left" style="background-image: url({% static 'assets/board-game.jpg' %})"></div>
-    <div class="d-none d-sm-block col-sm-2 spg-base-feed bg-light">
+    <div class="d-none d-md-block col-md-2 spg-background-left"
+         style="background-image: url({% static 'assets/board-game.jpg' %})"></div>
+    <div class="d-none d-md-block col-md-2 spg-base-feed bg-light">
         {% include "feed.html" %}
     </div>
-    <div class="col-sm-6 spg-base-content">
-        {% block content %}
-        {% endblock %}
+    <div class="col-md-6 spg-base-content">
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
     </div>
-    <div class="col-sm-2 spg-background-right" style="background-image: url({% static 'assets/board-game.jpg' %})"></div>
+    <div class="d-none d-md-block col-md-2 spg-background-right"
+         style="background-image: url({% static 'assets/board-game.jpg' %})"></div>
 </div>
 
 <footer>
     <div class="row">
-        <div class="col-sm-12 spg-base-footer">
+        <div class="col-md-12 spg-base-footer">
             <div class="container">
                 <p>&copy; 2020 Snowy Pier Games LLC. All rights reserved.</p>
             </div>

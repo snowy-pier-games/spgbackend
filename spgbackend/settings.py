@@ -25,7 +25,7 @@ SECRET_KEY = secretkey
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['snowypiergames.com', 'www.snowypiergames.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'snowypiergames.com', 'www.snowypiergames.com']
 
 # Application definition
 
@@ -118,5 +118,5 @@ STATICFILES_DIRS = [
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 

@@ -13,3 +13,7 @@
 #spg-navbar {
   font-size: 1.2em;
 }
+
+.navbar-nav {
+  width: 100%;
+}

@@ -12,7 +12,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="spg-navbar">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mx-auto justify-content-around">
             <li class="nav-item">
                 <a class="nav-link" href="/">Home</a>
             </li>
@@ -34,10 +34,12 @@
                 </div>
             </li>
         </ul>
-        <form class="form-inline" action="/search" method="get">
-            <input class="form-control mr-md-2" type="text" placeholder="Search" aria-label="Search" name="searchText"
-                   value="{{searchText}}">
-            <button class="btn btn-outline-info my-2 my-md-0 nav-rightmost-element" type="submit">Search</button>
+        <form class="input-group form-inline my-2 my-md-0 w-50" action="/search" method="get">
+            <input class="form-control" type="text"
+                   placeholder="Search" aria-label="Search" name="searchText" value="{{searchText}}">
+            <div class="input-group-append">
+                <button class="btn btn-outline-info" type="submit">Search</button>
+            </div>
         </form>
     </div>
 </nav>

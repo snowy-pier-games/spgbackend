@@ -2,9 +2,11 @@
 <link rel="stylesheet" href="{% static 'css/nav.css' %}">
 
 <nav class="spg-nav navbar navbar-expand-md navbar-dark fixed-top text-uppercase">
-    <a class="navbar-brand spg-logo" href="/">
-        <img class="d-none d-md-block w-100" src="{% static 'assets/snowypiergames.svg' %}"/>
-        <span class="d-block d-md-none">Snowy Pier Games</span>
+    <a class="d-none d-md-block navbar-brand spg-logo" href="/">
+        <img class="w-100" src="{% static 'assets/snowypiergames.svg' %}"/>
+    </a>
+    <a class="d-block d-md-none navbar-brand mx-auto" href="/">
+        Snowy Pier Games
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#spg-navbar"

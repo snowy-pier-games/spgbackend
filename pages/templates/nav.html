@@ -1,9 +1,12 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/nav.css' %}">
 
-<nav class="navbar navbar-expand-md navbar-dark">
-    <a class="navbar-brand spg-logo" href="/">
-        <img class="spg-logo-image" src="{% static 'assets/snowypiergames.svg' %}"/>
+<nav class="spg-nav navbar navbar-expand-md navbar-dark fixed-top text-uppercase">
+    <a class="d-none d-md-block navbar-brand spg-logo" href="/">
+        <img class="w-100" src="{% static 'assets/snowypiergames.svg' %}"/>
+    </a>
+    <a class="d-block d-md-none navbar-brand mx-auto" href="/">
+        Snowy Pier Games
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#spg-navbar"
@@ -11,7 +14,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="spg-navbar">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mx-auto justify-content-around w-100">
             <li class="nav-item">
                 <a class="nav-link" href="/">Home</a>
             </li>
@@ -33,10 +36,12 @@
                 </div>
             </li>
         </ul>
-        <form class="form-inline" action="/search" method="get">
-            <input class="form-control mr-md-2" type="text" placeholder="Search" aria-label="Search" name="searchText"
-                   value="{{searchText}}">
-            <button class="btn btn-outline-info my-2 my-md-0 nav-rightmost-element" type="submit">Search</button>
+        <form class="input-group form-inline my-2 my-md-0 w-50" action="/search" method="get">
+            <input class="form-control" type="text"
+                   placeholder="Search" aria-label="Search" name="searchText" value="{{searchText}}">
+            <div class="input-group-append">
+                <button class="btn btn-outline-info" type="submit">Search</button>
+            </div>
         </form>
     </div>
 </nav>

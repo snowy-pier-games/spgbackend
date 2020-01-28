@@ -20,18 +20,18 @@
     </div>
 </div>
 <div class="row">
-    <div class="d-none d-md-block col-md-1 col-lg-2 spg-background-left"
+    <div class="d-none d-md-block col-md-1 spg-background-left"
          style="background-image: url({% static 'assets/board-game.jpg' %})"></div>
-    <div class="d-none d-md-block col-md-3 col-lg-2 spg-base-feed bg-light">
+    <div class="d-none d-md-block col-md-3 spg-base-feed bg-light">
         {% include "feed.html" %}
     </div>
-    <div class="col-md-6 spg-base-content">
+    <div class="col-md-7 spg-base-content">
         <div class="container">
             {% block content %}
             {% endblock %}
         </div>
     </div>
-    <div class="d-none d-md-block col-md-1 col-lg-2 spg-background-right"
+    <div class="d-none d-md-block col-md-1 spg-background-right"
          style="background-image: url({% static 'assets/board-game.jpg' %})"></div>
 </div>
 

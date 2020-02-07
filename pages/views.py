@@ -38,6 +38,11 @@ def feed(request):
     return render(request, 'feed.html', context)
 
 
+def privacypolicy(request):
+    context = {"displayText": Content.displayText["privacypolicy"]}
+    return render(request, 'pages/privacypolicy.html', context)
+
+
 def search(request):
     searchText = request.GET.get('searchText')
     displayText = ""

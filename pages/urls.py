@@ -9,5 +9,6 @@ urlpatterns = [
     path('contact', views.contact, name='contact'),
     path('games', views.games, name='games'),
     path('games/tatteredtales', views.tatteredtales, name='tatteredtales'),
+    path('privacypolicy', views.privacypolicy, name='privacypolicy'),
     path('search', views.search, name='search')
 ]

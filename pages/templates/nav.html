@@ -15,19 +15,19 @@
     </button>
     <div class="collapse navbar-collapse" id="spg-navbar">
         <ul class="navbar-nav mx-auto justify-content-around w-100">
-            <li class="nav-item">
+            <li class="nav-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
                 <a class="nav-link" href="/">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {% if request.resolver_match.url_name == 'about' %}active{% endif %}">
                 <a class="nav-link" href="/about">About</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {% if request.resolver_match.url_name == 'news' %}active{% endif %}">
                 <a class="nav-link" href="/news">News</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
                 <a class="nav-link" href="/contact">Contact</a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown {% if request.resolver_match.url_name == 'games' or request.resolver_match.url_name == 'tatteredtales' %}active{% endif %}">
                 <a class="nav-link dropdown-toggle" href="/games" id="spg-dropdown" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">Games</a>
                 <div class="dropdown-menu" aria-labelledby="spg-dropdown">

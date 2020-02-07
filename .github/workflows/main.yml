@@ -12,5 +12,5 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script: whoami
+        script: pwd
         #script: cd spgbackend && git pull origin master && cp -R static/* ~/public_html/static/

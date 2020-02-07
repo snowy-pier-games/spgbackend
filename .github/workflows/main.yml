@@ -1,16 +1,15 @@
 name: Deploy
 on: [push]
 jobs:
-  build:
-    name: Build
+  update:
+    name: Update website
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Pull latest code
+    - name: Pull latest code and restart
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script: cd spgbackend && git pull origin master && cp -R static/* ~/public_html/static/ && touch tmp/restart.txt
+        script: eval $(ssh-agent -s) && ssh-add ~/.ssh/id_rsa && cd spgbackend && git pull origin master && cp -R static/* ~/public_html/static/ && touch tmp/restart.txt

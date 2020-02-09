@@ -12,4 +12,10 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script: eval $(ssh-agent -s) && ssh-add ~/.ssh/id_rsa && cd spgbackend && git pull origin master && cp -R static/* ~/public_html/static/ && touch tmp/restart.txt
+        script: |
+          eval $(ssh-agent -s)
+          ssh-add ~/.ssh/id_rsa
+          cd spgbackend
+          git pull origin master
+          cp -R static/* ~/public_html/static/
+          touch tmp/restart.txt

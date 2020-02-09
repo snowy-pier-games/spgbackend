@@ -3,71 +3,55 @@ from django.shortcuts import render
 from .models import Content
 
 
-def home(request):
-    context = {"displayText": Content.displayText["home"]}
-    return render(request, 'pages/home.html', context)
-
-
 def about(request):
-    context = {"displayText": Content.displayText["about"]}
+    context = {}
     return render(request, 'pages/about.html', context)
 
 
-def news(request):
-    context = {"displayText": Content.displayText["news"]}
-    return render(request, 'pages/news.html', context)
-
-
 def contact(request):
-    context = {"displayText": Content.displayText["contact"]}
+    context = {}
     return render(request, 'pages/contact.html', context)
 
 
-def games(request):
-    context = {"displayText": Content.displayText["games"]}
-    return render(request, 'pages/games.html', context)
-
-
-def tatteredtales(request):
-    context = {"displayText": Content.displayText["games/tatteredtales"]}
-    return render(request, 'pages/games/tatteredtales.html', context)
-
-
 def feed(request):
-    context = {"displayText": Content.displayText["feed"]}
+    context = {}
     return render(request, 'feed.html', context)
 
 
+def games(request):
+    context = {}
+    return render(request, 'pages/games.html', context)
+
+
+def home(request):
+    context = {}
+    return render(request, 'pages/home.html', context)
+
+
+def news(request):
+    context = {}
+    return render(request, 'pages/news.html', context)
+
+
 def privacypolicy(request):
-    context = {"displayText": Content.displayText["privacypolicy"]}
+    context = {}
     return render(request, 'pages/privacypolicy.html', context)
 
 
 def search(request):
+    content = Content()
     searchText = request.GET.get('searchText')
-    displayText = ""
-
-    for page, pageText in Content.displayText.items():
-        textBegin = pageText.lower().find(searchText.lower())
-        if textBegin > -1:
-            textEnd = textBegin + len(searchText)
-            lookBehind = max(0, textBegin - 64)
-            lookAhead = min(len(pageText), textEnd + 64)
-
-            prefix = ""
-            suffix = ""
-            if lookBehind > 0:
-                prefix = "..."
-            if lookAhead < len(pageText):
-                suffix = "..."
-
-            displayText += "<h3><a href='/" + page + "'>" + page + "</a></h3>"
-            displayText += "<p>" + prefix + pageText[lookBehind:textBegin] \
-                           + "<span style='color:red;'>" + pageText[textBegin:textEnd] + "</span>" \
-                           + pageText[textEnd:lookAhead] + suffix + "</p>"
-
-    if not displayText:
-        displayText = "No results"
+    displayText = content.search(searchText)
 
     context = {"searchText": searchText, "displayText": displayText}
     return render(request, 'pages/search.html', context)
+
+
+def tatteredtales(request):
+    context = {}
+    return render(request, 'pages/games/tatteredtales.html', context)
+
+
+def termsandconditions(request):
+    context = {}
+    return render(request, 'pages/termsandconditions.html', context)

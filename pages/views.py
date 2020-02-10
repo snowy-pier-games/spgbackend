@@ -9,9 +9,12 @@ def about(request):
 
 
 def contact(request):
+    name = request.GET.get('name')
+    email = request.GET.get('email')
     question = request.GET.get('question')
+    # TODO: email question
 
-    context = {"question": question}
+    context = {}
     return render(request, 'pages/contact.html', context)
 
 
@@ -47,6 +50,15 @@ def search(request):
 
     context = {"searchText": searchText, "displayText": displayText}
     return render(request, 'pages/search.html', context)
+
+
+def subscribe(request):
+    name = request.GET.get('name')
+    email = request.GET.get('email')
+    # TODO: add email to database
+
+    context = {}
+    return render(request, 'pages/subscribe.html', context)
 
 
 def tatteredtales(request):

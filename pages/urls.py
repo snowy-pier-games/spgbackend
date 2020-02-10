@@ -12,5 +12,6 @@ urlpatterns = [
     path('news', views.news, name='news'),
     path('privacypolicy', views.privacypolicy, name='privacypolicy'),
     path('search', views.search, name='search'),
+    path('subscribe', views.subscribe, name='subscribe'),
     path('termsandconditions', views.termsandconditions, name='termsandconditions')
 ]

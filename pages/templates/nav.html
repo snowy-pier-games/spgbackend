@@ -21,11 +21,11 @@
             <li class="nav-item {% if request.resolver_match.url_name == 'about' %}active{% endif %}">
                 <a class="nav-link" href="/about">About</a>
             </li>
-            <li class="nav-item {% if request.resolver_match.url_name == 'news' %}active{% endif %}">
-                <a class="nav-link" href="/news">News</a>
-            </li>
             <li class="nav-item {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
                 <a class="nav-link" href="/contact">Contact</a>
+            </li>
+            <li class="nav-item {% if request.resolver_match.url_name == 'subscribe' %}active{% endif %}">
+                <a class="nav-link" href="/subscribe">Subscribe</a>
             </li>
             <li class="nav-item dropdown {% if request.resolver_match.url_name == 'games' or request.resolver_match.url_name == 'tatteredtales' %}active{% endif %}">
                 <a class="nav-link dropdown-toggle" href="/games" id="spg-dropdown" data-toggle="dropdown"

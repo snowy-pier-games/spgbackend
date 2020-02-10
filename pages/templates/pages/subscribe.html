@@ -2,11 +2,11 @@
 
 {% block content %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/pages/contact.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/subscribe.css' %}">
 
-<h2>Contact</h2>
+<h2>Subscribe to our newsletter</h2>
 <hr>
-<p>Type your question here or send us an <a href="mailto:contact@snowypiergames.com">email</a></p>
+<p>Don't miss all the latest updates from Snowy Pier Games!</p>
 
 <form class="form-group" action="/contact" method="get">
     <label class="spg-form-element" for="name">Name</label>
@@ -14,10 +14,6 @@
 
     <label class="spg-form-element" for="email">Email</label>
     <input type="email" class="form-control" id="email" placeholder="your@email.com" aria-label="Email" name="email">
-
-    <label class="spg-form-element" for="question">What's your question?</label>
-    <textarea class="form-control" id="question" rows="10" placeholder="Type a few sentences here..."
-              aria-label="Question" name="question"></textarea>
 
     <div class="spg-form-element">
         <button class="btn btn-info" type="submit">Submit</button>

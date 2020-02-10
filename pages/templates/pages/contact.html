@@ -7,4 +7,18 @@
 <h2>Contact</h2>
 <hr>
 
+<form class="form-group" action="/contact" method="get">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" placeholder="Your name" aria-label="Name" name="name">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" placeholder="your@email.com" aria-label="Email"
+           name="email">
+    <label for="question">What's your question?</label>
+    <textarea class="form-control" id="question" rows="10" placeholder="Type a few sentences here..."
+              aria-label="Question" name="question" value="{{question}}"></textarea>
+    <div class="input-group-append">
+        <button class="btn btn-outline-info" type="submit">Submit</button>
+    </div>
+</form>
+
 {% endblock %}

@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from .secretkey import secretkey
+from .secrets import secretkey, name, user, password, host
 
 CONFIG = os.environ["SPG_CONFIG"] if "SPG_CONFIG" in os.environ else "DEVELOPMENT"  # DEVELOPMENT or PRODUCTION
 
@@ -83,7 +83,10 @@ WSGI_APPLICATION = 'spgbackend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': name,
+        'USER': user,
+        'PASSWORD': password,
+        'HOST': host
     }
 }
 

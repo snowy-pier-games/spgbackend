@@ -9,7 +9,9 @@ def about(request):
 
 
 def contact(request):
-    context = {}
+    question = request.GET.get('question')
+
+    context = {"question": question}
     return render(request, 'pages/contact.html', context)
 
 

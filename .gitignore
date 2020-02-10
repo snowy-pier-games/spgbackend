@@ -8,6 +8,7 @@ tmp
 *.pyc
 __pycache__
 db.sqlite3
+spg-database
 media
 
 # Backup files # 

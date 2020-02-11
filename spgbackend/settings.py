@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from .secrets import secretkey, name, user, password, host
+from .secrets import secretkey, name, user, password, host, mailchimp_api_key, mailchimp_data_center, \
+    mailchimp_audience_id
 
 CONFIG = os.environ["SPG_CONFIG"] if "SPG_CONFIG" in os.environ else "DEVELOPMENT"  # DEVELOPMENT or PRODUCTION
 
@@ -141,3 +142,7 @@ if CONFIG is "PRODUCTION":
     SESSION_COOKIE_SECURE = True
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
     X_FRAME_OPTIONS = 'DENY'
+
+MAILCHIMP_API_KEY = mailchimp_api_key
+MAILCHIMP_DATA_CENTER = mailchimp_data_center
+MAILCHIMP_AUDIENCE_ID = mailchimp_audience_id

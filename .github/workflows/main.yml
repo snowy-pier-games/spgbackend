@@ -13,7 +13,9 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
+          source virtualenv/spgbackend/3.7/bin/activate
           cd spgbackend
           git pull origin master
+          pip install -r requirements.txt
           cp -R static/* ~/public_html/static/
           touch tmp/restart.txt

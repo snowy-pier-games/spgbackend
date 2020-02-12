@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from .secretkey import secretkey
+from .secrets import secretkey, \
+    db_host, db_name, db_password, db_user, \
+    mailchimp_api_key, mailchimp_audience_id, mailchimp_data_center, \
+    email_host, email_password, email_user
 
 CONFIG = os.environ["SPG_CONFIG"] if "SPG_CONFIG" in os.environ else "DEVELOPMENT"  # DEVELOPMENT or PRODUCTION
 
@@ -80,12 +83,15 @@ WSGI_APPLICATION = 'spgbackend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': db_name,
+#         'USER': db_user,
+#         'PASSWORD': db_password,
+#         'HOST': db_host
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -138,3 +144,13 @@ if CONFIG is "PRODUCTION":
     SESSION_COOKIE_SECURE = True
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
     X_FRAME_OPTIONS = 'DENY'
+
+MAILCHIMP_API_KEY = mailchimp_api_key
+MAILCHIMP_DATA_CENTER = mailchimp_data_center
+MAILCHIMP_AUDIENCE_ID = mailchimp_audience_id
+
+EMAIL_HOST = email_host
+EMAIL_PORT = 465
+EMAIL_HOST_USER = email_user
+EMAIL_HOST_PASSWORD = email_password
+EMAIL_USE_SSL = True

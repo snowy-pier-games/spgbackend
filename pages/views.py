@@ -1,6 +1,9 @@
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
 from django.shortcuts import render
 
-from .models import Content
+from .forms import ContactForm, SubscribeForm
+from .models import Content, InfoHandler
 
 
 def about(request):
@@ -9,7 +12,23 @@ def about(request):
 
 
 def contact(request):
-    context = {}
+    displayText = ""
+
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            try:
+                send_mail(subject, message, email, ['contact@snowypiergames.com'])
+                displayText = "Your email was sent! We'll get back to you as soon as we can."
+            except BadHeaderError:
+                return HttpResponse('Bad header')
+        else:
+            displayText = form.errors
+
+    context = {"displayText": displayText}
     return render(request, 'pages/contact.html', context)
 
 
@@ -28,11 +47,6 @@ def home(request):
     return render(request, 'pages/home.html', context)
 
 
-def news(request):
-    context = {}
-    return render(request, 'pages/news.html', context)
-
-
 def privacypolicy(request):
     context = {}
     return render(request, 'pages/privacypolicy.html', context)
@@ -45,6 +59,32 @@ def search(request):
 
     context = {"searchText": searchText, "displayText": displayText}
     return render(request, 'pages/search.html', context)
+
+
+def subscribe(request):
+    displayText = ""
+
+    if request.method == "POST":
+        form = SubscribeForm(request.POST)
+        if form.is_valid():
+            infoHandler = InfoHandler()
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            response = infoHandler.subscribeToMailchimp(email, name)
+
+            if response.status_code is 200:
+                displayText = "Thanks for subscribing!"
+            elif "title" in response.json() and response.json()["title"] == "Member Exists":
+                displayText = "Good news, you're already subscribed!"
+            elif "detail" in response.json():
+                displayText = response.json()["detail"]
+            else:
+                displayText = "Couldn't subscribe, status code " + str(response.status_code)
+        else:
+            displayText = form.errors
+
+    context = {"displayText": displayText}
+    return render(request, 'pages/subscribe.html', context)
 
 
 def tatteredtales(request):

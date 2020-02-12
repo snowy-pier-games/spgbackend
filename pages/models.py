@@ -1,9 +1,36 @@
-from django.urls import reverse
+from django.conf import settings
 from django.db import models
+from django.urls import reverse
+
 from html.parser import HTMLParser
+import json
 import os
 from pathlib import Path
 import re
+import requests
+
+
+class InfoHandler:
+    def __init__(self):
+        pass
+
+    def subscribeToMailchimp(self, email, name):
+        api_url = f'https://{settings.MAILCHIMP_DATA_CENTER}.api.mailchimp.com/3.0'
+        members_endpoint = f'{api_url}/lists/{settings.MAILCHIMP_AUDIENCE_ID}/members'
+
+        data = {
+            "email_address": email,
+            "status": "subscribed",
+            "merge_fields": {
+                "FNAME": name
+            }
+        }
+
+        return requests.post(
+            members_endpoint,
+            auth=("", settings.MAILCHIMP_API_KEY),
+            data=json.dumps(data)
+        )
 
 
 class HTMLSearcher(HTMLParser):

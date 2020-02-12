@@ -12,8 +12,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 from .secrets import secretkey, \
-    db_name, db_user, db_password, db_host, \
-    mailchimp_api_key, mailchimp_data_center, mailchimp_audience_id
+    db_host, db_name, db_password, db_user, \
+    mailchimp_api_key, mailchimp_audience_id, mailchimp_data_center, \
+    email_host, email_password, email_user
 
 CONFIG = os.environ["SPG_CONFIG"] if "SPG_CONFIG" in os.environ else "DEVELOPMENT"  # DEVELOPMENT or PRODUCTION
 
@@ -147,3 +148,9 @@ if CONFIG is "PRODUCTION":
 MAILCHIMP_API_KEY = mailchimp_api_key
 MAILCHIMP_DATA_CENTER = mailchimp_data_center
 MAILCHIMP_AUDIENCE_ID = mailchimp_audience_id
+
+EMAIL_HOST = email_host
+EMAIL_PORT = 465
+EMAIL_HOST_USER = email_user
+EMAIL_HOST_PASSWORD = email_password
+EMAIL_USE_SSL = True

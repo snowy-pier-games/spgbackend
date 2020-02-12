@@ -8,11 +8,8 @@
 <hr>
 <p>Don't miss all the latest updates from Snowy Pier Games!</p>
 {% if displayText %}
-<div class="alert alert-primary" role="alert">
-    {{ displayText }}
-</div>
+<div class="alert alert-primary" role="alert">{{ displayText }}</div>
 {% endif  %}
-
 <form class="form-group" action="/subscribe" method="post">
     {% csrf_token %}
     <label class="spg-form-element" for="name">Name</label>

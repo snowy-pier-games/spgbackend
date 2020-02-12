@@ -37,11 +37,6 @@ def home(request):
     return render(request, 'pages/home.html', context)
 
 
-def news(request):
-    context = {}
-    return render(request, 'pages/news.html', context)
-
-
 def privacypolicy(request):
     context = {}
     return render(request, 'pages/privacypolicy.html', context)

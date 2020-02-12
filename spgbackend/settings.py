@@ -11,8 +11,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from .secrets import secretkey, name, user, password, host, mailchimp_api_key, mailchimp_data_center, \
-    mailchimp_audience_id
+from .secrets import secretkey, \
+    db_name, db_user, db_password, db_host, \
+    mailchimp_api_key, mailchimp_data_center, mailchimp_audience_id
 
 CONFIG = os.environ["SPG_CONFIG"] if "SPG_CONFIG" in os.environ else "DEVELOPMENT"  # DEVELOPMENT or PRODUCTION
 
@@ -83,11 +84,11 @@ WSGI_APPLICATION = 'spgbackend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': name,
-        'USER': user,
-        'PASSWORD': password,
-        'HOST': host
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': db_name,
+        'USER': db_user,
+        'PASSWORD': db_password,
+        'HOST': db_host
     }
 }
 

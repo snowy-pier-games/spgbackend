@@ -1,10 +1,6 @@
-from django.conf import settings
 from django.shortcuts import render
 
-import json
-import requests
-
-from .models import Content
+from .models import Content, InfoHandler
 
 
 def about(request):
@@ -13,9 +9,9 @@ def about(request):
 
 
 def contact(request):
-    name = request.GET.get('name')
-    email = request.GET.get('email')
-    question = request.GET.get('question')
+    name = request.POST.get('name')
+    email = request.POST.get('email')
+    question = request.POST.get('question')
     # TODO: email question
 
     context = {}
@@ -52,27 +48,22 @@ def search(request):
 
 
 def subscribe(request):
-    name = request.GET.get('name')
-    email = request.GET.get('email')
+    name = request.POST.get('name')
+    email = request.POST.get('email')
 
-    api_url = f'https://{settings.MAILCHIMP_DATA_CENTER}.api.mailchimp.com/3.0'
-    members_endpoint = f'{api_url}/lists/{settings.MAILCHIMP_AUDIENCE_ID}/members'
+    displayText = ""
+    if email:
+        infoHandler = InfoHandler()
+        response = infoHandler.subscribeToMailchimp(email, name)
 
-    data = {
-        "email_address": email,
-        "status": "subscribed",
-        "merge_fields": {
-            "FNAME": name
-        }
-    }
+        if response.status_code is 200:
+            displayText = "Thanks for subscribing!"
+        elif "title" in response.json() and response.json()["title"] == "Member Exists":
+            displayText = "Good news, you're already subscribed!"
+        elif "detail" in response.json():
+            displayText = response.json()["detail"]
 
-    r = requests.post(
-        members_endpoint,
-        auth=("", settings.MAILCHIMP_API_KEY),
-        data=json.dumps(data)
-    )
-
-    context = {}
+    context = {"displayText": displayText}
     return render(request, 'pages/subscribe.html', context)
 
 

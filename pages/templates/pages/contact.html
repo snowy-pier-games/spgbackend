@@ -8,7 +8,8 @@
 <hr>
 <p>Type your question here or send us an <a href="mailto:contact@snowypiergames.com">email</a></p>
 
-<form class="form-group" action="/contact" method="get">
+<form class="form-group" action="/contact" method="post">
+    {% csrf_token %}
     <label class="spg-form-element" for="name">Name</label>
     <input type="text" class="form-control" id="name" placeholder="Your name" aria-label="Name" name="name">
 

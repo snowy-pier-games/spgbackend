@@ -7,20 +7,20 @@
 <h2>Subscribe to our newsletter</h2>
 <hr>
 <p>Don't miss all the latest updates from Snowy Pier Games!</p>
+
 {% if displayText %}
 <div class="alert alert-primary" role="alert">{{ displayText }}</div>
 {% endif  %}
+
 <form class="form-group" action="/subscribe" method="post">
     {% csrf_token %}
-    <label class="spg-form-element" for="name">Name</label>
+    <label for="name">Name</label>
     <input type="text" class="form-control" id="name" placeholder="Your name" aria-label="Name" name="name">
 
-    <label class="spg-form-element" for="email">Email</label>
+    <label for="email">Email</label>
     <input type="email" class="form-control" id="email" placeholder="your@email.com" aria-label="Email" name="email">
 
-    <div class="spg-form-element">
-        <button class="btn btn-info" type="submit">Submit</button>
-    </div>
+    <button class="btn btn-info" type="submit">Submit</button>
 </form>
 
 {% endblock %}

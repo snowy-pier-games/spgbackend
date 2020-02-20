@@ -13,10 +13,15 @@ pip install -r requirements.txt
 
 You'll also need to provide Django with a secret key, which it uses for cryptographic signing.
 If you're just developing locally, you can make this anything you want.
-Assign its value in a new file called the `secretkey.py`, which should be in the same directory as `settings.py`.
+Assign its value in a new file called the `secrets.py`, which should be in the same directory as `settings.py`.
 ```
 echo "secretkey = (your_generated_string)" > (top_level_directory)/spgbackend/secretkey.py
 ```
+You will also need to assign the following variables some value in the `secrets.py` file:
+    db_host, db_name, db_password, db_user,
+    mailchimp_api_key, mailchimp_audience_id, mailchimp_data_center,
+    email_host, email_password, email_user
+The value can be the empty string if you are not testing email/subscriptions
 
 #### Running the web server
 This command will start a local webserver.

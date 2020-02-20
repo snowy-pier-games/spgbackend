@@ -1,30 +1,96 @@
+from django.conf import settings
 from django.db import models
+from django.urls import reverse
+
+from html.parser import HTMLParser
+import json
+import os
+from pathlib import Path
+import re
+import requests
 
 
-class Content():
-    displayText = {
-        "about": "<p>Snowy Pier Games was started by three brothers with a passion for board games. Through years of "
-                 "experience playing hundreds of different hobby-style tabletop games, we have developed a keen eye for"
-                 " determining what makes games truly fun to play. Now, our mission is to create amazing board and card"
-                 " games for every type of gamer. Whether you're new to gaming or have been in the hobby for awhile, we"
-                 " can provide you with your next great game. Let's play!</p>",
-        "contact": "",
-        "games": "",
-        "home": "",
-        "news": "",
-        "search": "",
-        "games/tatteredtales": "<p> Can you <b>Locate the lost city of El Dorado</b> or <b>Survive on Mars for a "
-                               "month until the rescue shuttle arrives</b>? These are just a couple of the situations "
-                               "you may encounter in the world of Tattered Tales. Compete as teams to create stories "
-                               "to win the votes of your opposing publishing companies. But there’s a catch! You only "
-                               "have limited items available to you! Will you be able to use your random items to "
-                               "help create a “tattered tale”? If so, you may have what it takes to become the Master "
-                               "Storyteller!</p><p>Tattered Tales is a storytelling game where players work in teams "
-                               "(called publishing companies) to create unique stories! As co-authors of the tale, "
-                               "you and your teammates must use a diverse set of random items to create a story that "
-                               "resolves a given situation. There is limited time to figure out how to not only use "
-                               "the items available to you, but also make your story immersive and entertaining. "
-                               "Players shift to new publishing companies each round, but the player who helps create "
-                               "the most captivating stories throughout the game claims the title of Master "
-                               "Storyteller!</p> "
-    }
+class InfoHandler:
+    def __init__(self):
+        pass
+
+    def subscribeToMailchimp(self, email, name):
+        api_url = f'https://{settings.MAILCHIMP_DATA_CENTER}.api.mailchimp.com/3.0'
+        members_endpoint = f'{api_url}/lists/{settings.MAILCHIMP_AUDIENCE_ID}/members'
+
+        data = {
+            "email_address": email,
+            "status": "subscribed",
+            "merge_fields": {
+                "FNAME": name
+            }
+        }
+
+        return requests.post(
+            members_endpoint,
+            auth=("", settings.MAILCHIMP_API_KEY),
+            data=json.dumps(data)
+        )
+
+
+class HTMLSearcher(HTMLParser):
+    def __init__(self):
+        HTMLParser.__init__(self)
+        self.data = ""
+
+    def handle_data(self, data):
+        self.data += data
+
+    def get_data(self):
+        return self.data
+
+    def error(self, message):
+        print(message)
+
+
+class Content:
+    def __init__(self):
+        pass
+
+    def searchInFile(self, searchText, subdir, filename):
+        displayText = ""
+
+        filepath = subdir + os.sep + filename
+        with open(filepath, encoding="utf8") as file:
+            text = file.read()
+            searcher = HTMLSearcher()
+            searcher.feed(text)
+            text = searcher.get_data()
+            text = re.sub(r"{%.*%}", "", text)
+
+            textBegin = text.lower().find(searchText.lower())
+            if textBegin > -1:
+                textEnd = textBegin + len(searchText)
+                lookBehind = max(0, textBegin - 64)
+                lookAhead = min(len(text), textEnd + 64)
+
+                prefix = ""
+                suffix = ""
+                if lookBehind > 0:
+                    prefix = "..."
+                if lookAhead < len(text):
+                    suffix = "..."
+
+                viewname = Path(filename).stem
+                displayText = "<h3><a href='" + reverse(viewname) + "'>" + viewname + "</a></h3><p>" + prefix + \
+                              text[lookBehind:textBegin] + "<span style='color:red;'>" + text[textBegin:textEnd] + \
+                              "</span>" + text[textEnd:lookAhead] + suffix + "</p>"
+
+        return displayText
+
+    def search(self, searchText):
+        displayText = ""
+
+        for subdir, dirs, files in os.walk("pages/templates/pages"):
+            for filename in files:
+                displayText += self.searchInFile(searchText, subdir, filename)
+
+        if not displayText:
+            displayText = "No results"
+
+        return displayText

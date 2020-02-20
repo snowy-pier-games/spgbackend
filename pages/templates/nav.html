@@ -29,7 +29,7 @@
                 <a class="nav-link" href="/subscribe">Subscribe</a>
             </li>
           
-            <li class="nav-item">
+            <li class="nav-item {% if request.resolver_match.url_name == 'games' or request.resolver_match.url_name == 'tatteredtales' %}active{% endif %}">
                 <a class="nav-link" href="/games">Games</a>
             </li>
           

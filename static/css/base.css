@@ -1,3 +1,8 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
 .spg-background-left, .spg-background-right {
   background-attachment: static;
   background-repeat: no-repeat;
@@ -15,9 +20,13 @@
   background-position: right;
 }
 
+.spg-content-row, .spg-content-col {
+  height: 100%;
+}
+
 .spg-content {
   padding-top: 15%;
-  min-height: 800px;
+  height: 100%;
 }
 
 .form-control {

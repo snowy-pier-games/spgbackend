@@ -1,44 +1,16 @@
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
-.spg-background-left, .spg-background-right {
-  background-attachment: static;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 0 0 0 0;
-  padding: 0 0 0 0;
-  opacity: 0.25;
-}
-
-.spg-background-left {
-  background-position: center;
-}
-
-.spg-background-right {
-  background-position: right;
-}
-
-.spg-content-row, .spg-content-col {
-  height: 100%;
+.spg-body {
+  min-height: 100%;
+  position: relative;
 }
 
 .spg-content {
-  padding-top: 15%;
-  height: 100%;
-}
-
-.form-control {
-  margin: 0 0 2% 0;
+  padding: 16% 0 128px 0;
 }
 
 .spg-footer {
+  background: #222222;
+  bottom: 0;
+  position: absolute;
   text-align: center;
-  color: white;
-  background-color: #111111;
-}
-
-.spg-footer span {
-  padding: 0 2% 0 2%;
+  width: 100%;
 }

@@ -24,15 +24,15 @@
             <li class="nav-item {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
                 <a class="nav-link" href="/contact">Contact</a>
             </li>
-          
+
             <li class="nav-item {% if request.resolver_match.url_name == 'subscribe' %}active{% endif %}">
                 <a class="nav-link" href="/subscribe">Subscribe</a>
             </li>
-          
+
             <li class="nav-item {% if request.resolver_match.url_name == 'games' or request.resolver_match.url_name == 'tatteredtales' %}active{% endif %}">
                 <a class="nav-link" href="/games">Games</a>
             </li>
-          
+
             <li class="nav-item dropdown {% if request.resolver_match.url_name == 'games' or request.resolver_match.url_name == 'tatteredtales' %}active{% endif %}">
                 <a class="nav-link dropdown-toggle" href="/games" id="spg-dropdown" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false"></a>
@@ -41,7 +41,7 @@
                     <a class="dropdown-item" href="/games/tatteredtales">Tattered Tales</a>
                 </div>
             </li>
-        
+
         </ul>
         <form class="input-group form-inline my-2 my-md-0 w-50" action="/search" method="get">
             <input class="form-control" type="text"

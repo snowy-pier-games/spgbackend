@@ -16,21 +16,21 @@
     <div class="collapse navbar-collapse" id="spg-navbar">
         <ul class="navbar-nav mx-auto justify-content-around w-100">
             <li class="nav-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
-                <a class="nav-link" href="/">H<span class="small">ome</span></a>
+                <a class="nav-link" href="/">H<span class="small font-weight-bold">ome</span></a>
             </li>
             <li class="nav-item {% if request.resolver_match.url_name == 'about' %}active{% endif %}">
-                <a class="nav-link" href="/about">A<span class="small">bout</span></a>
+                <a class="nav-link" href="/about">A<span class="small font-weight-bold">bout</span></a>
             </li>
             <li class="nav-item {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
-                <a class="nav-link" href="/contact">C<span class="small">ontact</span></a>
+                <a class="nav-link" href="/contact">C<span class="small font-weight-bold">ontact</span></a>
             </li>
 
             <li class="nav-item {% if request.resolver_match.url_name == 'subscribe' %}active{% endif %}">
-                <a class="nav-link" href="/subscribe">S<span class="small">ubscribe</span></a>
+                <a class="nav-link" href="/subscribe">S<span class="small font-weight-bold">ubscribe</span></a>
             </li>
 
             <li class="nav-item {% if request.resolver_match.url_name == 'games' or request.resolver_match.url_name == 'tatteredtales' %}active{% endif %}">
-                <a class="nav-link" href="/games">G<span class="small">ames</span></a>
+                <a class="nav-link" href="/games">G<span class="small font-weight-bold">ames</span></a>
             </li>
 
             <li class="nav-item dropdown {% if request.resolver_match.url_name == 'games' or request.resolver_match.url_name == 'tatteredtales' %}active{% endif %}">

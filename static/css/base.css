@@ -1,10 +1,14 @@
+body {
+  font-family: Raleway;
+}
+
 .spg-body {
   min-height: 100%;
   position: relative;
 }
 
 .spg-content {
-  padding: 16% 4% 200px 4%;
+  padding: 16% 8% 200px 8%;
 }
 
 .spg-footer {

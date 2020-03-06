@@ -30,54 +30,62 @@
 
 <body class="h-100">
 <div class="spg-body">
-    <div class="row">
-        <div class="col-12">
-            {% include "nav.html" %}
-        </div>
-    </div>
-    <div class="row">
-        <div class="d-none d-md-block col-md-1"></div>
-        <div class="col-12 col-md-10">
-            <div class="spg-content">
-                {% block content %}
-                {% endblock %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                {% include "nav.html" %}
             </div>
         </div>
-        <div class="d-none d-md-block col-md-1"></div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="spg-content">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer class="spg-footer">
-        <div class="row pb-2 pt-3">
-            <div class="col-12 d-md-none"><a href="/about" class="text-light">About</a></div>
-            <div class="col-12 d-md-none"><a href="/contact" class="text-light">Contact</a></div>
-            <div class="col-12 d-md-none"><a href="/subscribe" class="text-light">Subscribe</a></div>
+        <div class="container">
+            <div class="row pb-2 pt-3">
+                <div class="col-12 d-md-none"><a href="/about" class="text-light">About</a></div>
+                <div class="col-12 d-md-none"><a href="/contact" class="text-light">Contact</a></div>
+                <div class="col-12 d-md-none"><a href="/subscribe" class="text-light">Subscribe</a></div>
 
-            <div class="col-md-12 d-none d-md-block">
-                <span class="px-md-3"><a href="/about" class="text-light">About</a></span>
-                <span class="px-md-3"><a href="/contact" class="text-light">Contact</a></span>
-                <span class="px-md-3"><a href="/subscribe" class="text-light">Subscribe</a></span>
+                <div class="col-md-12 d-none d-md-block">
+                    <span class="px-md-3"><a href="/about" class="text-light">About</a></span>
+                    <span class="px-md-3"><a href="/contact" class="text-light">Contact</a></span>
+                    <span class="px-md-3"><a href="/subscribe" class="text-light">Subscribe</a></span>
+                </div>
             </div>
-        </div>
-        <div class="row pb-2">
-            <div class="col-12 d-md-none">
-                <a href="/privacypolicy" class="text-light">Privacy Policy</a>
-            </div>
-            <div class="col-12 d-md-none">
-                <a href="/termsandconditions" class="text-light">Terms and Conditions</a>
-            </div>
+            <div class="row pb-2">
+                <div class="col-12 d-md-none">
+                    <a href="/privacypolicy" class="text-light">Privacy Policy</a>
+                </div>
+                <div class="col-12 d-md-none">
+                    <a href="/termsandconditions" class="text-light">Terms and Conditions</a>
+                </div>
 
-            <div class="col-md-12 d-none d-md-block">
-                <span class="px-md-3"><a href="/privacypolicy" class="text-light">Privacy Policy</a></span>
-                <span class="px-md-3"><a href="/termsandconditions" class="text-light">Terms and Conditions</a></span>
+                <div class="col-md-12 d-none d-md-block">
+                    <span class="px-md-3">
+                        <a href="/privacypolicy" class="text-light">Privacy Policy</a>
+                    </span>
+                    <span class="px-md-3">
+                        <a href="/termsandconditions" class="text-light">Terms and Conditions</a>
+                    </span>
+                </div>
             </div>
-        </div>
-        <div class="row pb-3">
-            <div class="col-12">
-                <span class="text-secondary">&copy; 2020 Snowy Pier Games LLC. All rights reserved.</span>
+            <div class="row pb-3">
+                <div class="col-12">
+                    <span class="text-secondary">&copy; 2020 Snowy Pier Games LLC. All rights reserved.</span>
+                </div>
             </div>
         </div>
     </footer>
 </div>
-
 </body>
 </html>

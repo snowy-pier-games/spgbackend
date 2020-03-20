@@ -8,12 +8,13 @@ body {
 }
 
 .spg-content {
-  padding: 16% 0 200px 0;
+  padding: 16% 0 250px 0;
 }
 
 .spg-footer {
   background: #111111;
   bottom: 0;
+  max-height: 250px;
   position: absolute;
   text-align: center;
   width: 100%;

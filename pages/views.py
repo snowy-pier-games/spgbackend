@@ -1,6 +1,8 @@
-from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse
+from django.conf import settings
 from django.shortcuts import render
+
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 from .forms import ContactForm, SubscribeForm
 from .models import Content, InfoHandler
@@ -20,11 +22,20 @@ def contact(request):
             email = form.cleaned_data['email']
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
+            mail = Mail(
+                from_email=email,
+                to_emails='contact@snowypiergames.com',
+                subject=subject,
+                html_content=message)
             try:
-                send_mail(subject, message, email, ['contact@snowypiergames.com'])
-                displayText = "Your email was sent! We'll get back to you as soon as we can."
-            except BadHeaderError:
-                return HttpResponse('Bad header')
+                sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
+                response = sg.send(mail)
+                if response.status_code is 200 or response.status_code is 202:
+                    displayText = "Your email was sent! We'll get back to you as soon as we can."
+                else:
+                    displayText = "Something went wrong... please send us an email at contact@snowypiergames.com"
+            except Exception as e:
+                displayText = "Something went wrong... please send us an email at contact@snowypiergames.com"
         else:
             displayText = form.errors
 

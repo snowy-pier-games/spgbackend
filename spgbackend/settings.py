@@ -14,6 +14,7 @@ import os
 from .secrets import secretkey, \
     db_host, db_name, db_password, db_user, \
     mailchimp_api_key, mailchimp_audience_id, mailchimp_data_center, \
+    sendgrid_api_key, \
     email_host, email_password, email_user
 
 CONFIG = os.environ["SPG_CONFIG"] if "SPG_CONFIG" in os.environ else "DEVELOPMENT"  # DEVELOPMENT or PRODUCTION
@@ -148,6 +149,8 @@ if CONFIG is "PRODUCTION":
 MAILCHIMP_API_KEY = mailchimp_api_key
 MAILCHIMP_DATA_CENTER = mailchimp_data_center
 MAILCHIMP_AUDIENCE_ID = mailchimp_audience_id
+
+SENDGRID_API_KEY = sendgrid_api_key
 
 EMAIL_HOST = email_host
 EMAIL_PORT = 465

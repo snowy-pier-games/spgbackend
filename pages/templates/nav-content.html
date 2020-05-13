@@ -1,0 +1,49 @@
+{% load static %}
+
+<a class="spg-logo d-none d-md-block navbar-brand" href="/">
+    <img class="w-100" src="{% static 'assets/snowypiergames.svg' %}"/>
+</a>
+<a class="d-block d-md-none navbar-brand mx-auto" href="/">
+    Snowy Pier Games
+</a>
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#spg-navbar"
+        aria-controls="spg-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="spg-navbar">
+    <ul class="navbar-nav mx-auto justify-content-around w-100">
+        <li class="nav-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+            <a class="nav-link" href="/">H<span class="small font-weight-bold">ome</span></a>
+        </li>
+        <li class="nav-item {% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+            <a class="nav-link" href="/about">A<span class="small font-weight-bold">bout</span></a>
+        </li>
+        <li class="nav-item {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+            <a class="nav-link" href="/contact">C<span class="small font-weight-bold">ontact</span></a>
+        </li>
+        <li class="nav-item {% if request.resolver_match.url_name == 'subscribe' %}active{% endif %}">
+            <a class="nav-link" href="/subscribe">S<span class="small font-weight-bold">ubscribe</span></a>
+        </li>
+        <li class="nav-item dropdown {% if request.resolver_match.url_name == 'games' or request.resolver_match.url_name == 'tatteredtales' %}active{% endif %}">
+            <a class="nav-link" href="/games" id="spg-dropdown"
+               aria-haspopup="true" aria-expanded="false">G<span class="small font-weight-bold">ames</span></a>
+            <div class="dropdown-menu" aria-labelledby="spg-dropdown">
+                <a class="dropdown-item" href="/games">
+                    A<span class="small font-weight-bold">ll</span>
+                    G<span class="small font-weight-bold">ames</span></a>
+                <a class="dropdown-item" href="/games/tatteredtales">
+                    T<span class="small font-weight-bold">attered</span>
+                    T<span class="small font-weight-bold">ales</span>
+                </a>
+            </div>
+        </li>
+    </ul>
+    <form class="form-inline input-group my-2 my-md-0 col-12 col-md-4" action="/search" method="get">
+        <input class="form-control" type="text"
+               placeholder="Search" aria-label="Search" name="searchText" value="{{searchText}}">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit">Search</button>
+        </div>
+    </form>
+</div>

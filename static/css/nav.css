@@ -9,3 +9,7 @@
 #spg-navbar {
   font-size: 1.2em;
 }
+
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}

@@ -1,8 +1,10 @@
+
 {% load static %}
+
 <a class="spg-logo d-none d-md-block navbar-brand" href="/">
     <img class="w-100" src="{% static 'assets/snowypiergames.svg' %}"/>
 </a>
-<a class="d-md-none navbar-brand mx-auto" href="/">
+<a class="d-block d-md-none navbar-brand mx-auto" href="/">
     Snowy Pier Games
 </a>
 
@@ -24,12 +26,9 @@
         <li class="nav-item {% if request.resolver_match.url_name == 'subscribe' %}active{% endif %}">
             <a class="nav-link" href="/subscribe">S<span class="small font-weight-bold">ubscribe</span></a>
         </li>
-        <li class="nav-item {% if request.resolver_match.url_name == 'games' or request.resolver_match.url_name == 'tatteredtales' %}active{% endif %}">
-            <a class="nav-link" href="/games">G<span class="small font-weight-bold">ames</span></a>
-        </li>
         <li class="nav-item dropdown {% if request.resolver_match.url_name == 'games' or request.resolver_match.url_name == 'tatteredtales' %}active{% endif %}">
-            <a class="nav-link dropdown-toggle" href="/games" id="spg-dropdown" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="false"></a>
+            <a class="nav-link" href="/games" id="spg-dropdown"
+               aria-haspopup="true" aria-expanded="false">G<span class="small font-weight-bold">ames</span></a>
             <div class="dropdown-menu" aria-labelledby="spg-dropdown">
                 <a class="dropdown-item" href="/games">
                     A<span class="small font-weight-bold">ll</span>
@@ -48,4 +47,5 @@
             <button class="btn btn-outline-secondary" type="submit">Search</button>
         </div>
     </form>
+
 </div>

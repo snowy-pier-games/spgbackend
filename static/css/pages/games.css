@@ -5,3 +5,7 @@
 .spg-game-card a:hover {
   text-decoration: none;
 }
+
+.card-img {
+  height: 100%;
+}

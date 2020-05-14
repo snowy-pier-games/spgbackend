@@ -1,3 +1,7 @@
 .spg-game-card {
   max-width: 500px;
 }
+
+.spg-game-card a:hover {
+  text-decoration: none;
+}

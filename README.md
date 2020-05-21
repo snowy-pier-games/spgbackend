@@ -11,17 +11,25 @@ cd (top_level_directory)
 pip install -r requirements.txt
 ```
 
-You'll also need to provide Django with a secret key, which it uses for cryptographic signing.
-If you're just developing locally, you can make this anything you want.
-Assign its value in a new file called the `secrets.py`, which should be in the same directory as `settings.py`.
+You'll also need to create a `(top_level_directory)/spgbackend/secrets.py` file, in which you'll need to define these
+values:
 ```
-echo "secretkey = (your_generated_string)" > (top_level_directory)/spgbackend/secretkey.py
+secretkey = "secretkey"
+db_host = ""
+db_name = ""
+db_password = ""
+db_user = ""
+mailchimp_api_key = ""
+mailchimp_audience_id = ""
+mailchimp_data_center = ""
+email_host = ""
+email_password = ""
+email_user = ""
+sendgrid_api_key = ""
 ```
-You will also need to assign the following variables some value in the `secrets.py` file:
-    db_host, db_name, db_password, db_user,
-    mailchimp_api_key, mailchimp_audience_id, mailchimp_data_center,
-    email_host, email_password, email_user
-The value can be the empty string if you are not testing email/subscriptions
+If you are developing locally, they can all be assigned to an empty string (except for the secretkey, which Django
+complains about being empty). If you need any of the actual values for testing purposes, contact one of the contributors
+to this repository.
 
 #### Running the web server
 This command will start a local webserver.

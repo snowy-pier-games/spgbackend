@@ -7,16 +7,8 @@ body {
   position: relative;
 }
 
-@media (max-width: 767px) {
-  .spg-content {
-    padding: 4% 0 250px 0;
-  }
-}
-
-@media (min-width: 768px) {
-  .spg-content {
-    padding: 16% 0 250px 0;
-  }
+.spg-content {
+  padding: 16% 0 250px 0;
 }
 
 .spg-footer {

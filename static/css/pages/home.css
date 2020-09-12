@@ -5,3 +5,21 @@
 .spg-squid {
   width: 125%;
 }
+
+.spg-video-description {
+  width: 89%;
+  padding-bottom: 1em;
+}
+
+.spg-video-container {
+  position: relative;
+  padding-top: 50%;
+}
+
+.spg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 89%;
+  height: 100%;
+}

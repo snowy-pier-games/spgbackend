@@ -30,11 +30,11 @@
         companies, each round. The bookkeeper flips over the top situation card and reads it out loud. This is the
         situation each company will attempt to resolve this round.
     </div>
-    <div class="col-12 col-md-6 text-center"><img class="w-75" src="{% static 'assets/situation.jpg' %}"/></div>
+    <div class="col-12 col-md-6 text-right"><img class="w-75" src="{% static 'assets/situation.jpg' %}"/></div>
 </div>
 <div class="row mb-5">
     <div class="col-12 col-md-6">Then, the bookkeeper deals five item cards to the storyteller of each company.</div>
-    <div class="col-12 col-md-6 text-center"><img class="w-75" src="{% static 'assets/hand-of-cards.jpg' %}"/></div>
+    <div class="col-12 col-md-6 text-right"><img class="w-75" src="{% static 'assets/hand-of-item-cards.jpg' %}"/></div>
 </div>
 <div class="row mb-5">
     <div class="col-12 col-md-6">
@@ -42,18 +42,18 @@
         has two minutes to concoct an entertaining story using the items in their hand to complete the situation that
         was revealed.
     </div>
-    <div class="col-12 col-md-6 text-center">[Picture of team creating story]</div>
+    <div class="col-12 col-md-6 text-right"><img class="w-75" src="{% static 'assets/authoring.jpg' %}"/></div>
 </div>
 <div class="row mb-5">
     <div class="col-12 col-md-6">Once the time runs out, each storyteller takes a turn telling their team’s story.</div>
-    <div class="col-12 col-md-6 text-center">[Storyteller telling story]</div>
+    <div class="col-12 col-md-6 text-right"><img class="w-75" src="{% static 'assets/storytelling.jpg' %}"/></div>
 </div>
 <div class="row mb-5">
     <div class="col-12 col-md-6">
         After all stories have been told, each person votes for the story the liked best. All players (not just the
         storyteller) on a publishing company get a point for each vote that company receives.
     </div>
-    <div class="col-12 col-md-6 text-center">[People voting]</div>
+    <div class="col-12 col-md-6 text-right">[People voting]</div>
 </div>
 <div class="row mb-5">
     <div class="col-12 col-md-6">
@@ -61,18 +61,20 @@
         The player with the highest score is deemed the master storyteller. If only one round was played, the Company
         with the most votes wins as a team.
     </div>
-    <div class="col-12 col-md-6 text-center">[People laughing]</div>
+    <div class="col-12 col-md-6 text-right"><img class="w-75" src="{% static 'assets/laughing.jpg' %}"/></div>
 </div>
 
-<div class="text-center">
-    <div class="spg-video-container">
+<div class="text-center mb-5">
+    <p>Want a more detailed explanation? Check out our "How-to-play" video for a summary of the rules.</p>
+    <div class="ttales-video-container">
         <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                class="spg-video">
+                class="ttales-video">
         </iframe>
     </div>
-
+</div>
+<div class="text-center">
+    <p>Or download the rulebook for the game.</p>
     <a class="mb-4 btn btn-dark" href="{% static 'assets/tattered-tales-rules.pdf' %}">Tattered Tales Rulebook PDF</a>
 </div>
-
 {% endblock %}

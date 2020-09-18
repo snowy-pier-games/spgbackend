@@ -1,7 +1,3 @@
-.spg-box-top {
-  width: 82%;
-}
-
 .spg-squid {
   width: 125%;
 }
@@ -17,4 +13,5 @@
   left: 0;
   width: 89%;
   height: 100%;
+  margin-left: 5%;
 }

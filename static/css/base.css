@@ -9,37 +9,37 @@ body {
 
 @media (max-width: 767px) {
   .spg-content {
-    padding: 80px 0 280px 0;
+    padding: 80px 0 320px 0;
   }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
   .spg-content {
-    padding: 16% 0 250px 0;
+    padding: 16% 0 280px 0;
   }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
   .spg-content {
-    padding: 16% 0 250px 0;
+    padding: 16% 0 280px 0;
   }
 }
 
 @media (min-width: 1200px) and (max-width: 1559px) {
   .spg-content {
-    padding: 16% 0 250px 0;
+    padding: 16% 0 280px 0;
   }
 }
 
 @media (min-width: 1560px) and (max-width: 1919px) {
   .spg-content {
-    padding: 16% 0 250px 0;
+    padding: 16% 0 280px 0;
   }
 }
 
 @media (min-width: 1920px) {
   .spg-content {
-    padding: 16% 0 250px 0;
+    padding: 16% 0 280px 0;
   }
 }
 

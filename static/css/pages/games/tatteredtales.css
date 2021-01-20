@@ -1,3 +1,8 @@
+.ttales-box-top {
+  float: left;
+  width: 33%;
+}
+
 .ttales-video-container {
   position: relative;
   padding-top: 28%;
